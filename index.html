@@ -1,0 +1,74 @@
+<HTML>
+    <head>
+    <style>
+      /* Local font faces */
+      @font-face {
+        font-family: 'Antarctica';
+        src: url('./newglyph/Antarctica-VAR-VF.ttf.woff2') format('woff2-variations');
+        font-weight: 100 900;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'SwissDin';
+        src: url('./newglyph/SwissDin-VAR-VF.woff2') format('woff2-variations');
+        font-weight: 100 900;
+        font-display: swap;
+      }
+
+      /* Base typography */
+      body {
+        font-family: 'Antarctica', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #111;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'SwissDin', 'Antarctica', system-ui, sans-serif;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      p {
+        text-align: center;
+        max-width: 600px;
+      }
+
+      /* Optional: adjust specific heading sizes */
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 2rem; }
+      h3 { font-size: 1.5rem; }
+
+      /* Font weight classes for playful styling */
+      .bold { font-weight: 700; }
+      .light { font-weight: 300; }
+      .bolditalic { font-weight: 700; font-style: italic; }
+      .italic { font-style: italic; }
+      .left-align { text-align: left; display: inline-block; }
+
+    </style>
+    </head>
+    <body>
+        <h1>According to all known laws of typography,</h1>
+        <p>
+            there is no way a font should be able to type. 
+            It's glyphs are too small to get its <span class="bold">fat little weights</span> off the ground. 
+            But the fonts type anyway, because fonts do not care what humans think are impossible. 
+        </p>
+        
+        <p>
+            <span class="bold">Bold</span>, <span class="italic">Italic</span>, 
+            <span class="bold">Bold</span>, <span class="italic">Italic</span>? 
+            Ooo! <span class="bolditalic">BoldItallic!</span> 
+            Let's Shake it up a little. <span class="bold">Arial!</span> Breakfast is ready! 
+            Coming mom! Arial, use the <span class="bold left-align">left alignment</span>, 
+            your father paid good money for those. Sorry ma.
+        </p>
+    </body>
+
+</HTML>
