@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainbow Pattern Animation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        canvas {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #stationIdent {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            max-width: 90%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <img id="stationIdent" src="https://shibedev12is.me/station_ident.png" alt="Station Ident">
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Set canvas size
+        canvas.width = 800;
+        canvas.height = 600;
+        
+        // Rainbow colors (matching the image)
+        const colors = [
+            '#FF0000', // red
+            '#FF4500', // orange-red
+            '#FF8C00', // orange
+            '#FFD700', // gold
+            '#FFFF00', // yellow
+            '#7FFF00', // chartreuse
+            '#00FF00', // green
+            '#00FF7F', // spring green
+            '#00FFFF', // cyan
+            '#00CED1', // turquoise
+            '#0080FF', // light blue
+            '#0000FF', // blue
+            '#4B0082', // indigo
+            '#8B00FF', // violet
+            '#FF00FF'  // magenta
+        ];
+        
+        const numBoxes = colors.length;
+        const boxHeight = canvas.height / numBoxes;
+        
+        let currentBox = 0;
+        let flipMode = 0; // 0: normal, 1: flip X, 2: flip Y, 3: flip both
+        let animating = true;
+        
+        function drawBox(index, flipX, flipY) {
+            const color = colors[index];
+            
+            // Calculate position based on flip mode
+            // Each box should be smaller than the previous one
+            const scale = (numBoxes - index) / numBoxes;
+            let x, y, width, height;
+            
+            if (flipX && flipY) {
+                // Flip both - draw from bottom-right
+                width = canvas.width * scale;
+                height = canvas.height * scale;
+                x = canvas.width - width;
+                y = canvas.height - height;
+            } else if (flipX) {
+                // Flip X - draw from top-right
+                width = canvas.width * scale;
+                height = canvas.height * scale;
+                x = canvas.width - width;
+                y = 0;
+            } else if (flipY) {
+                // Flip Y - draw from bottom-left
+                width = canvas.width * scale;
+                height = canvas.height * scale;
+                x = 0;
+                y = canvas.height - height;
+            } else {
+                // Normal - draw from top-left
+                width = canvas.width * scale;
+                height = canvas.height * scale;
+                x = 0;
+                y = 0;
+            }
+            
+            ctx.fillStyle = color;
+            ctx.fillRect(x, y, width, height);
+        }
+        
+        function animate() {
+            if (!animating) return;
+            
+            const flipX = (flipMode === 1 || flipMode === 3);
+            const flipY = (flipMode === 2 || flipMode === 3);
+            
+            drawBox(currentBox, flipX, flipY);
+            currentBox++;
+            
+            if (currentBox >= numBoxes) {
+                // Pattern complete, wait then clear and start next flip mode
+                currentBox = 0;
+                flipMode = (flipMode + 1) % 4;
+                
+                setTimeout(() => {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    setTimeout(animate, 50);
+                }, 1000);
+            } else {
+                // Keep drawing next box
+                setTimeout(animate, 100);
+            }
+        }
+        
+        // Start animation
+        animate();
+    </script>
+</body>
+</html>
