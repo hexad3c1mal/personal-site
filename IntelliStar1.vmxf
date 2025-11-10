@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<Foundry>
+<VM>
+<VMId type="string">52 cc a9 38 64 b5 39 87-83 e0 54 d2 44 8b 60 7a</VMId>
+<ClientMetaData>
+<clientMetaDataAttributes/>
+<HistoryEventList/></ClientMetaData>
+<vmxPathName type="string">IntelliStar1.vmx</vmxPathName></VM></Foundry>
