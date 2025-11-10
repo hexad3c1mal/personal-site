@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather System Display</title>
     <style>
+        @font-face {
+            font-family: 'Frutiger Bold';
+            src: url('https://shibedev12is.me/istartup/Frutiger_Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -12,7 +19,7 @@
         }
         
         body {
-            font-family: 'Frutiger', 'Arial', sans-serif;
+            font-family: 'Frutiger Bold', 'Arial', sans-serif;
             background: #000;
             display: flex;
             justify-content: center;
@@ -62,6 +69,41 @@
         
         .info-section {
             position: absolute;
+            left: 70px;
+            color: #ffd40e;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .info-line-1 {
+            position: absolute;
+            bottom: 92px;
+            left: 70px;
+            color: #ffd40e;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .info-line-2 {
+            position: absolute;
+            bottom: 76px;
+            left: 70px;
+            color: #ffd40e;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .info-line-3 {
+            position: absolute;
+            bottom: 60px;
+            left: 70px;
+            color: #ffd40e;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .info-line-4 {
+            position: absolute;
             bottom: 44px;
             left: 70px;
             color: #ffd40e;
@@ -69,25 +111,28 @@
             font-weight: bold;
         }
         
-        .info-line {
-            margin-bottom: 16px;
-        }
-        
         .logos {
             position: absolute;
+        }
+        
+        .twc-logo {
+            position: absolute;
+            left: 600px;
             bottom: 62px;
-            right: 20px;
-            display: flex;
-            gap: 20px;
-            align-items: center;
         }
         
         .twc-logo img {
-            height: auto;
+            display: block;
+        }
+        
+        .wxscan-logo {
+            position: absolute;
+            left: 490px;
+            bottom: 44px;
         }
         
         .wxscan-logo img {
-            height: auto;
+            display: block;
         }
     </style>
 </head>
@@ -98,20 +143,16 @@
         </div>
         
         <div class="footer">
-            <div class="info-section">
-                <div class="info-line">headend Id: <span id="headendId">N/A</span></div>
-                <div class="info-line">serial number: <span id="serialNum">Not Available At This Time.</span></div>
-                <div class="info-line">location name: <span id="locName">N/A</span></div>
-                <div class="info-line">affiliate name: <span id="affiliateName">Weather Ranch</span></div>
-            </div>
+            <div class="info-line-1">headend Id: <span id="headendId">N/A</span></div>
+            <div class="info-line-2">serial number: <span id="serialNum">Not Available At This Time.</span></div>
+            <div class="info-line-3">location name: <span id="locName">N/A</span></div>
+            <div class="info-line-4">affiliate name: <span id="affiliateName">Weather Ranch</span></div>
             
-            <div class="logos">
-                <div class="wxscan-logo">
-                    <img src="https://shibedev12is.me/istartup/wxScanLogo.png" alt="WxSCAN Logo">
-                </div>
-                <div class="twc-logo">
-                    <img src="https://shibedev12is.me/istartup/twcLogo.png" alt="TWC Logo">
-                </div>
+            <div class="wxscan-logo">
+                <img src="https://shibedev12is.me/istartup/wxScanLogo.png" alt="WxSCAN Logo">
+            </div>
+            <div class="twc-logo">
+                <img src="https://shibedev12is.me/istartup/twcLogo.png" alt="TWC Logo">
             </div>
         </div>
     </div>
