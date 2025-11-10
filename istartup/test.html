@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SplashScreen.rs</title>
+    <title>RenderScript Preview</title>
     <style>
         @font-face {
             font-family: 'Frutiger Bold';
-            src: url('http://shibedev12is.me/istartup/Frutiger_Bold.ttf') format('truetype');
+            src: url('file:///G:\Downloads\wxscan-folders/twc/rsrc/fonts/Frutiger_Bold.ttf') format('truetype');
             font-weight: bold;
             font-style: normal;
         }
@@ -19,7 +19,7 @@
         }
         
         body {
-            font-family: 'Frutiger Bold', 'Arial', sans-serif;
+            font-family: 'Frutiger Bold', Arial, sans-serif;
             background: #000;
             display: flex;
             justify-content: center;
@@ -32,145 +32,104 @@
             height: 480px;
             background: #ebebeb;
             position: relative;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            overflow: hidden;
         }
         
-        .content {
-            width: 100%;
-            height: 370px;
-            position: relative;
-        }
         
-        .istar-logo {
-            position: absolute;
-            left: 180px;
-            top: 120px;
-            width: 360px;
-            height: 240px;
-            transform-style: preserve-3d;
-            animation: spin 10s linear infinite;
-        }
+@keyframes rotate_item_2 {
+    from { 
+        transform: perspective(1000px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    to { 
+        transform: perspective(1000px) rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    }
+}
         
-        @keyframes spin {
-            0% { 
-                transform: perspective(1000px) rotateZ(0deg) rotateY(0deg) rotateX(0deg);
-            }
-            100% { 
-                transform: perspective(1000px) rotateZ(360deg) rotateY(360deg) rotateX(360deg);
-            }
-        }
-        
-        .footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 110px;
-            background: #141414;
-        }
-        
-        .info-section {
-            position: absolute;
-            left: 70px;
-            color: #ffd40e;
-            font-size: 16px;
-            font-weight: bold;
-        }
-        
-        .info-line-1 {
-            position: absolute;
-            top: 4px;
-            left: 67px;
-            color: #ffd40e;
-            font-size: 16px;
-            font-weight: bold;
-        }
-        
-        .info-line-2 {
-            position: absolute;
-            top: 20px;
-            left: 67px;
-            color: #ffd40e;
-            font-size: 16px;
-            font-weight: bold;
-        }
-        
-        .info-line-3 {
-            position: absolute;
-            top: 36px;
-            left: 67px;
-            color: #ffd40e;
-            font-size: 16px;
-            font-weight: bold;
-        }
-        
-        .info-line-4 {
-            position: absolute;
-            top: 52px;
-            left: 67px;
-            color: #ffd40e;
-            font-size: 16px;
-            font-weight: bold;
-        }
-        
-        .logos {
-            position: absolute;
-        }
-        
-        .twc-logo {
-            position: absolute;
-            left: 600px;
-            bottom: 62px;
-        }
-        
-        .twc-logo img {
-            display: block;
-        }
-        
-        .wxscan-logo {
-            position: absolute;
-            left: 490px;
-            bottom: 44px;
-        }
-        
-        .wxscan-logo img {
-            display: block;
-        }
+#item_0 {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 720px;
+    height: 480px;
+    background: rgba(235, 235, 235, 1.0);
+}
+#item_1 {
+    position: absolute;
+    left: 0px;
+    top: 370px;
+    width: 720px;
+    height: 110px;
+    background: rgba(20, 20, 20, 1.0);
+}
+#item_2 {
+    position: absolute;
+    left: 180px;
+    top: 120px;
+    width: 360px;
+    height: 240px;
+    transform-style: preserve-3d;
+    animation: rotate_item_2 5.00s linear infinite;
+}
+#item_3 {
+    position: absolute;
+    left: 70px;
+    top: 376px;
+    color: rgba(255, 212, 14, 1.0);
+    font-family: 'Frutiger Bold', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+#item_4 {
+    position: absolute;
+    left: 70px;
+    top: 392px;
+    color: rgba(255, 212, 14, 1.0);
+    font-family: 'Frutiger Bold', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+#item_5 {
+    position: absolute;
+    left: 70px;
+    top: 408px;
+    color: rgba(255, 212, 14, 1.0);
+    font-family: 'Frutiger Bold', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+#item_6 {
+    position: absolute;
+    left: 70px;
+    top: 424px;
+    color: rgba(255, 212, 14, 1.0);
+    font-family: 'Frutiger Bold', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+#item_7 {
+    position: absolute;
+    left: 600px;
+    top: 371px;
+    width: 53px;
+    height: 47px;
+}
+#item_8 {
+    position: absolute;
+    left: 490px;
+    top: 417px;
+    width: 162px;
+    height: 19px;
+}
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="content">
-            <img src="http://shibedev12is.me/istartup/sucom.png" alt="iSTAR Logo" class="istar-logo">
-        </div>
-        
-        <div class="footer">
-            <div class="info-line-1">headend Id: <span id="headendId">N/A</span></div>
-            <div class="info-line-2">serial number: <span id="serialNum">Not Available At This Time.</span></div>
-            <div class="info-line-3">location name: <span id="locName">N/A</span></div>
-            <div class="info-line-4">affiliate name: <span id="affiliateName">Weather Ranch</span></div>
-            
-            <div class="wxscan-logo">
-                <img src="http://shibedev12is.me/istartup/sucomhold.png" alt="WxSCAN Logo">
-            </div>
-            <div class="twc-logo">
-            </div>
-        </div>
+        <div id="item_0" class="box"></div><div id="item_1" class="box"></div><img id="item_2" class="image" src="http://shibedev12is.me/istartup/sucom.png" /><div id="item_3" class="text">headend Id: 0000000</div><div id="item_4" class="text">serial number: SUCOM022737</div><div id="item_5" class="text">location name: Harrison</div><div id="item_6" class="text">affiliate name: Sunrise Communications</div><img id="item_8" class="image" src="http://shibedev12is.me/istartup/sucomhold.png" />
     </div>
-
-    <script>
-        function updateSystemInfo(data) {
-            if (data.headendId) document.getElementById('headendId').textContent = data.headendId;
-            if (data.serialNum) document.getElementById('serialNum').textContent = data.serialNum;
-            if (data.locName) document.getElementById('locName').textContent = data.locName;
-            if (data.affiliateName) document.getElementById('affiliateName').textContent = data.affiliateName;
-        }
-
-         updateSystemInfo({
-             headendId: '000000',
-             serialNum: 'SUCOM022737',
-             locName: 'Harrison',
-             affiliateName: 'Sunrise Communications'
-         });
-    </script>
+    
 </body>
 </html>
