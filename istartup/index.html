@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather System Display</title>
+    <title>SplashScreen.rs</title>
     <style>
         @font-face {
             font-family: 'Frutiger Bold';
@@ -159,7 +159,6 @@
     </div>
 
     <script>
-        // You can update these values dynamically
         function updateSystemInfo(data) {
             if (data.headendId) document.getElementById('headendId').textContent = data.headendId;
             if (data.serialNum) document.getElementById('serialNum').textContent = data.serialNum;
@@ -167,7 +166,6 @@
             if (data.affiliateName) document.getElementById('affiliateName').textContent = data.affiliateName;
         }
 
-        // Example usage:
          updateSystemInfo({
              headendId: '022737',
              serialNum: 'TWCS02040073',
