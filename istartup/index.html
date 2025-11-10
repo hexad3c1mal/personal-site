@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather System Display</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Frutiger', sans-serif;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 720px;
+            height: 480px;
+            background: #ebebeb;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        
+        .content {
+            width: 100%;
+            height: 370px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .istar-logo {
+            width: 360px;
+            height: 240px;
+            transform-style: preserve-3d;
+            animation: spin 10s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { 
+                transform: perspective(1000px) rotateZ(0deg) rotateY(0deg) rotateX(0deg);
+            }
+            100% { 
+                transform: perspective(1000px) rotateZ(360deg) rotateY(360deg) rotateX(360deg);
+            }
+        }
+        
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 110px;
+            background: #141414;
+        }
+        
+        .info-section {
+            position: absolute;
+            bottom: 44px;
+            left: 70px;
+            color: #ffd40e;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .info-line {
+            margin-bottom: 16px;
+        }
+        
+        .logos {
+            position: absolute;
+            bottom: 62px;
+            right: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .twc-logo img {
+            height: auto;
+        }
+        
+        .wxscan-logo img {
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <img src="https://shibedev12is.me/istartup/istarLogo.png" alt="iSTAR Logo" class="istar-logo">
+        </div>
+        
+        <div class="footer">
+            <div class="info-section">
+                <div class="info-line">headend Id: <span id="headendId">N/A</span></div>
+                <div class="info-line">serial number: <span id="serialNum">Not Available At This Time.</span></div>
+                <div class="info-line">location name: <span id="locName">N/A</span></div>
+                <div class="info-line">affiliate name: <span id="affiliateName">Weather Ranch</span></div>
+            </div>
+            
+            <div class="logos">
+                <div class="wxscan-logo">
+                    <img src="https://shibedev12is.me/istartup/wxScanLogo.png" alt="WxSCAN Logo">
+                </div>
+                <div class="twc-logo">
+                    <img src="https://shibedev12is.me/istartup/twcLogo.png" alt="TWC Logo">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // You can update these values dynamically
+        function updateSystemInfo(data) {
+            if (data.headendId) document.getElementById('headendId').textContent = data.headendId;
+            if (data.serialNum) document.getElementById('serialNum').textContent = data.serialNum;
+            if (data.locName) document.getElementById('locName').textContent = data.locName;
+            if (data.affiliateName) document.getElementById('affiliateName').textContent = data.affiliateName;
+        }
+
+        // Example usage:
+        // updateSystemInfo({
+        //     headendId: '12345',
+        //     serialNum: 'SN-98765-XYZ',
+        //     locName: 'New York, NY',
+        //     affiliateName: 'Local Weather Station'
+        // });
+    </script>
+</body>
+</html>
